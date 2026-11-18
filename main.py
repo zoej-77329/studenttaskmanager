@@ -60,14 +60,14 @@ def main():
 
         choice = input("Enter your choice: ")
 
-    if choice == "1":
-        title = input("Enter task title: ")
+        if choice == "1":
+           title = input("Enter task title (cannot be empty): ")
 
-       try:
-        task = add_task(title)
-        print(f'Task added with ID {task["id"]}.')
-          except ValueError as error:
-        print(error)
+           try:
+            task = add_task(title)
+            print(f'Task added with ID {task["id"]}.')
+           except ValueError as error:
+            print(error)
 
         elif choice == "2":
             display_tasks()
