@@ -1,6 +1,7 @@
-
-tasks = []
-next_id = 1
+def reset_tasks():
+    global tasks, next_id
+    tasks = []
+    next_id = 1
 
 
 def add_task(title):
