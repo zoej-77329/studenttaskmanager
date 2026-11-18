@@ -30,6 +30,9 @@ def display_tasks():
 def complete_task(task_id):
     for task in tasks:
         if task["id"] == task_id:
+            if task["completed"]:
+                return False
+
             task["completed"] = True
             return True
 
