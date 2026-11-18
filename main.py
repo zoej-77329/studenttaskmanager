@@ -6,11 +6,15 @@ next_id = 1
 def add_task(title):
     global next_id
 
+    if not title.strip():
+        raise ValueError("Task title cannot be empty.")
+
     task = {
         "id": next_id,
-        "title": title,
+        "title": title.strip(),
         "completed": False
     }
+
 
     tasks.append(task)
     next_id += 1
@@ -57,9 +61,13 @@ def main():
         choice = input("Enter your choice: ")
 
         if choice == "1":
-            title = input("Enter task title: ")
+           title = input("Enter task title (cannot be empty): ")
+
+           try:
             task = add_task(title)
             print(f'Task added with ID {task["id"]}.')
+           except ValueError as error:
+            print(error)
 
         elif choice == "2":
             display_tasks()
