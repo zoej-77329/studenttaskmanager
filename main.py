@@ -40,10 +40,9 @@ def delete_task(task_id):
     for task in tasks:
         if task["id"] == task_id:
             tasks.remove(task)
-            return True
+            return task
 
-    return False
-
+    return None
 
 def main():
     while True:
