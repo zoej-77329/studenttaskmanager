@@ -74,15 +74,18 @@ def main():
                 print("Please enter a valid number.")
 
         elif choice == "4":
-            try:
-                task_id = int(input("Enter task ID: "))
-                if delete_task(task_id):
-                    print("Task deleted successfully.")
-                else:
-                    print("Task not found.")
-            except ValueError:
-                print("Please enter a valid number.")
+           try:
+               task_id = int(input("Enter task ID: "))
+               deleted_task = delete_task(task_id)
 
+               if deleted_task:
+                 print(f'Task "{deleted_task["title"]}" deleted successfully.')
+               else:
+                 print("Task not found.")
+
+           except ValueError:
+            print("Please enter a valid number.")
+ 
         elif choice == "5":
             print("Goodbye!")
             break
