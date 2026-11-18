@@ -69,11 +69,18 @@ def main():
 
         elif choice == "3":
             try:
-                task_id = int(input("Enter task ID: "))
-                if complete_task(task_id):
-                    print("Task completed successfully.")
-                else:
-                    print("Task not found.")
+               task_id = int(input("Enter task ID: "))
+
+               task = next((t for t in tasks if t["id"] == task_id), None)
+
+               if task is None:
+                  print("Task not found.")
+               elif task["completed"]:
+                  print("Task is already completed.")
+               else:
+                  complete_task(task_id)
+                  print("Task completed successfully.")
+
             except ValueError:
                 print("Please enter a valid number.")
 
